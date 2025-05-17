@@ -1,0 +1,96 @@
+\documentclass{article}
+
+
+\usepackage{PRIMEarxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{listings}
+\graphicspath{{figures/}}     % organize your images and other figures under media/ folder
+
+  
+%% Title
+\title{Melanin on Margins: A Study on Skin-Color Bias in the Bollywood Film Industry
+%%%% Cite as
+% \thanks{\textit{\underline{Citation}}: 
+% \textbf{Authors. Title. Pages.... DOI:000000/11111.}} 
+}
+
+\author{
+  Abhik Rana\\
+  Indian Statistical Institute, \\
+  Kolkata\\
+  \texttt{bs2301@isical.ac.in}
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+  With an outreach in more than 90 countries, a market share of 2.1 billion dollars and a target audience base of at least 1.2 billion people, Bollywood, aka the Mumbai film industry, is a formidable entertainment force. While the number of lives Bollywood can potentially touch is massive, no comprehensive study on the evolution of social and gender biases influencing colorism in Hindi cinema exists. Via a substantial corpus of movies spanning a time horizon of past 10 years, we seek to
+  understand the portrayal of skin tone, in a broader context studying subtle social signals, and analyzethe evolving trends in geographic and religious representation in India. Our argument is simple – popular movie content reflects social norms and beliefs in some form or shape. In this project, we propose to analyze such trends over the past 10 years of top 10 grossing Bollywood Hindi movies.
+\end{abstract}
+
+
+% keywords can be removed
+\keywords{Role Bias \and Colorism \and Bollywood}
+
+
+\input{contents/introduction.tex}
+
+\input{contents/questions.tex}
+
+\input{contents/dataset.tex}
+
+\input{contents/statistical-analysis.tex}
+
+\input{contents/tone-distribution.tex}
+
+\input{contents/observed-trends.tex}
+
+\section{Conclusion}
+\label{sec:conclusion}
+This study quantitatively examined the representation of skin tones in the Hindi film industry by analyzing luminance values extracted from the CieLAB color space for lead and supporting characters across the top five grossing films from 2015 to 2024. Focusing on the period from 2019 onward, our analysis revealed consistent and statistically significant patterns that point to the prevalence of colorism in casting decisions.
+
+Across multiple visualizations including distribution plots, percentiles, and histograms, \textit{we observed that lead roles (both actors and actresses) consistently exhibited higher luminance values, indicating a clear bias toward lighter skin tones. In contrast, supporting roles displayed a broader and darker range of skin tones, suggesting a systemic distinction in how skin color correlates with character prominence.}
+
+Temporal analyses further reinforced this disparity. \textit{Linear trendlines showed that average luminance levels for lead roles have remained high and relatively stable over time, with little indication of progress toward more inclusive representation.} Meanwhile, \textit{clustering analysis revealed that lighter skin tones are more strongly associated with lead roles, while darker tones are more likely to appear in side characters.}
+
+These findings are supported by statistical tests (ANOVA and effect size measurements), which confirmed that the differences in luminance between roles are both statistically significant and practically meaningful. Together, the evidence points to a persistent pattern in which lighter skin tones are favored for central, visible characters, while darker-skinned individuals are more frequently relegated to peripheral roles.
+
+In conclusion, \textbf{the data provide strong empirical support for the claim that colorism continues to influence casting practices in the Hindi film industry, particularly in the assignment of lead versus supporting roles. This pattern reflects broader societal biases and underscores the need for conscious reform in how representation is handled in mainstream cinema.}
+
+\section*{Acknowledgments}
+I would like to express my sincere gratitude to Professor Garga Chatterjee and Professor Kuntal Ghosh, under whose guidance and mentorship this study was conducted. Their insights, encouragement, and critical feedback were instrumental in shaping the direction of this research. I am deeply thankful for the opportunity to work under their supervision and for the invaluable learning experience this project has provided.
+
+%Bibliography
+\bibliographystyle{unsrt}  
+\bibliography{references}  
+
+
+\end{document}

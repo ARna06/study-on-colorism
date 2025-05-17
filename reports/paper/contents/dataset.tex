@@ -1,0 +1,30 @@
+\section{Data Set}
+\label{sec:dataset}
+
+\textit{We constructed a dataset which is a representative sample of the the frames in the movie}. We collected the top 5 grossing movies of each year from 2015 to 2024 from the bollywood box office, keeping in mind of the net gross. The movies satisfied the following criteria:
+
+\begin{itemize}
+    \item The selected movies have a resolution of 1280x720 and a frame rate of 24 fps.
+    \item There is a romantic connection between the hero and heroine (leading cast) of the
+    selected film.
+\end{itemize}
+
+Keeping in mind of the Fritzpatrick's categories of skin tone, we decided to select parameters in the following way:
+\begin{itemize}
+    \item The selected scene from the movie haa the Hero and at least one male side character or the Heroine with at least one female side character in Indian soil.
+    \item There is a romantic connection between the hero and heroine (leading cast) of the
+    selected film.
+    \item No foreign male and female side characters are taken into consideration for evaluation of the
+    luminous value (L*) of the skin tone during processing of the selected scenes.
+    \item The scenes were extracted keeping in mind that the glabella (middle portion of the forehead) is visible for all the considered characters. We essentially take the L* value from this area of the forehead.
+    \item For our convenience, we limit maximum of five support cast characters of the same sex with respect to the gender of the leading cast for whom the luminous values need to be determined. The chosen support cast should be closest to the leading cast.
+    \item Among all the scenes of variable length, the scene with lowest length is considered. 
+    \item From those extracted frames, the luminous value (L*) of the Cie-L*a*b* colour space model is evaluated. The luminous values from the skin tones were recorded in a CSV file for all the characters of all the scenes. The skin tone from where the value is assessed should be natural and not have any external colours or tattoos.
+    \item The L* values of the support cast characters of a particular gender were averaged and then compared with the L* value of the leading character for that specific gender (Hero : male support cast or Heroine : female support cast).
+\end{itemize}
+
+\subsection{Dataset Cleaning and Preprocessing}
+\label{sec:dataset_cleaning}
+The dataset was cleaned and preprocessed by taking only the common length of the samples drawn from the movies accross the years and then dropping all the rows that exceed the common length. 
+
+The dataset can be viewed here in the \href{https://github.com/ARna06/study-on-colorism/tree/main/data}{GitHub repository}.

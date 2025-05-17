@@ -1,0 +1,54 @@
+\section{Statistical Analysis}
+\label{sec:statistical-analysis}
+
+\textbf{RQ1:} \textit{How pronounced is colorism through bollywood movies?}
+
+\textbf{RQ2:} \textit{How does the representation of colorism in bollywood movies change over time?}
+
+\subsection{Analysis of Variance (ANOVA) of skin tone contrasting difference in roles}
+
+ANOVA (analysis of variance) is the standard test for comparing a continuous outcome (here, L* luminance) across more than two groups. In this case we have four role categories (actor, actress, side\_actor, side\_actress) and want to see if their mean L* values differ. ANOVA tests the null hypothesis that all group means are equal against the alternative that at least one group mean is different. 
+Concretely, we compute an F-statistic (the ratio of between-group variance to within-group variance) and a p-value. If the p-value is small (say $<0.05$), we reject the null hypothesis. This implies at least one mean differs, meaning at least one role category has a significantly different average skin luminance. 
+
+\textit{In the colorism context, a significant ANOVA would suggest that skin tone varies systematically by role (e.g. main vs side roles)}. ANOVA makes a few assumptions that should be checked (or at least approximately met) for valid inference. In particular:
+
+\begin{itemize}
+    \item Normality: The L* values within each role should be roughly normally distributed.
+    \item Homogeneity of variance: The variance of L* should be similar in each role group.
+    \item Independence: Each observation (each actor's luminance) should be independent of the others.
+\end{itemize}
+
+We have checked these assumptions and they are \textit{almost surely} met. The data analysis is done and following are the results of the ANOVA test:
+\begin{lstlisting}
+ANOVA - Luminance by Role:
+                sum_sq     df           F        PR(>F)
+C(role)   26213.769174    3.0  117.254676  1.635692e-43
+Residual  14606.094814  196.0         NaN           NaN
+
+ANOVA - Luminance by Year:
+                sum_sq     df         F   PR(>F)
+C(year)    1458.468134    9.0  0.782236  0.63304
+Residual  39361.395854  190.0       NaN      NaN
+\end{lstlisting}
+
+We observe that the p-vlaue of the ANOVA test for luminance by role is $1.635692e-43$ which is less than $0.05$. \textit{This indicates that the null hypothesis can be rejected and at least one role category has a significantly different average skin luminance.}
+
+However we see that the p-value of the test of luminance by year is $0.63304$ which is greater than $0.05$. \textit{This indicates that the null hypothesis cannot be rejected and the average skin luminance does not vary significantly with year.}
+
+\subsection{Cohen's d for effect size}
+While ANOVA tells us whether differences exist, Cohen's d measures how large a difference is between two groups. Cohen's $d$ is defined (in the simplest case) as the difference between two group means divided by the pooled standard deviation. In formula form for two roles A and B:
+$$d = \frac{L_A - L_B}{s_{\textit{pooled}}}$$
+where $L_A$ and $L_B$ are the means of roles A and B, and $s_{\textit{pooled}}$ is the pooled standard deviation of both groups. 
+
+Cohen's d can be interpreted as a standardized mean difference. In practical terms, d answers the question: \textit{How many standard deviations apart are the two group means? A positive d means Role A's mean L* is higher than Role B's; a negative d means the opposite.}
+
+\begin{lstlisting}
+    Cohen's d (Actor vs Actress): -2.319
+    Cohen's d (Lead vs Side roles): 1.492
+\end{lstlisting}
+
+Hence we see that the effect size of the difference in luminance between actor and actress is $-2.319$ which indicates that \textit{the luminance of actors is significantly higher than that of actresses}. 
+
+The effect size of the difference in luminance between lead and side roles is $1.492$ which indicates that \textit{the luminance of lead roles is significantly higher than that of side roles.}
+
+Together, ANOVA and Cohen's d directly address the research goal. ANOVA is appropriate because we have a continuous measure of skin tone (L)* and a categorical grouping (role) with more than two levels. It tests whether there is any overall difference in mean L* across roles, which is exactly what we need to detect systematic skin tone biases. A significant ANOVA would indicate that role category is associated with skin tone differences, providing initial evidence relevant to colorism. Cohen's d then complements this by quantifying the magnitude of those differences for specific comparisons. For instance, computing d for (actor vs. side\_actor) or (actor vs. actress) shows how big the gap is in standardized terms. Large effect sizes would reinforce the idea that any casting preferences are not only statistically real but also substantively large (e.g. lead roles being much lighter-skinned).
